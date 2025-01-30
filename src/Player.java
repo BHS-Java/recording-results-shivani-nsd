@@ -27,6 +27,20 @@ public class Player implements Person{
 
 
     };
+
+    public void      setAge(int age){
+       this.age = age;
+
+
+
+    };
+
+    public void      setHeight(int tall){
+        this.height = tall;
+ 
+ 
+ 
+     };
     public Results  getResults(){
         return this.wins;
 

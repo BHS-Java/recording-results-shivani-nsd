@@ -1,8 +1,8 @@
 public class Game {
 
     Wins win;
-    public int tellInfo(){
-        return this.win.tellStats();
+    public Results tellInfo(){
+        return this.win;
 
     };
 

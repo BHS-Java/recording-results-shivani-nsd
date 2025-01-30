@@ -3,9 +3,9 @@ import java.util.Scanner;
 
 public class Main implements Spec{
     public static void main(String[] args) {
-
+       
+        
     }
-
 
     public String askString(String question){
         Scanner s = new Scanner(System.in);
@@ -21,9 +21,8 @@ public class Main implements Spec{
         return answer;
     }
 
-    public String getResults(Game guessingOrBetter){
-        String ans = String.valueOf(guessingOrBetter.tellInfo());
-        return ans;
+    public Results getResults(Game guessingOrBetter){
+        return guessingOrBetter.tellInfo();
     }
 
     public Person makePerson(String name){

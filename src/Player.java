@@ -4,6 +4,18 @@ public class Player implements Person{
     int height;
     int age;
     Wins wins;
+    int win;
+    int loss;
+
+
+    public Player(String[] data){ 
+        this.name = data[0];
+        this.height = Integer.parseInt(data[1]);
+        this.age = Integer.parseInt(data[2]);
+        this.win = Integer.parseInt(data[3]);
+        this.loss = Integer.parseInt(data[4]);
+
+    }
     
 
     public void Climb(String direction){

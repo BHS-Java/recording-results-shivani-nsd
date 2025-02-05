@@ -1,23 +1,37 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
 
     Wins win;
-    ArrayList<Person> persons;
+    ArrayList<Player> players;
+    private File csvFile;
+    private PrintStream p;
+
+    public Game(){
+        
+        
+    }
+
+
+    
+
+    public Game(Player p){
+        this.persons.add(p);
+    }
 
     public Results tellInfo(){
         return this.win;
 
     };
 
-    public Game(Person p){
-        this.persons.add(p);
-    }
+    
 
-    public void addPerson(Person p){
+    public void addPerson(Player p){
         this.persons.add(p);
     }
 
@@ -25,21 +39,32 @@ public class Game {
         return this.win;
     }
 
-    public int loadPlayers(File csv){
-        int num=0;
-        ArrayList<Person> loaded;
-        Scanner s = new Scanner("/workspaces/recording-results-shivani-nsd/src/ConvertMe.csv");
-        s.useDelimiter(",");
-        while(s.hasNext()){
-            num++;
+    public ArrayList<Player> loadPlayers(String fileName) throws FileNotFoundException{
+        File f = new File(fileName);
+        this.csvFile= f;
+        this.players = new ArrayList<Player>();
+        p = new PrintStream(this.csvFile);
+        Scanner u = new Scanner(f);
+        while(u.hasNextLine()){
+          this.players.add(new Player(u.nextLine().split("[,]")));
         }
-       
-        return num;
+        u.close();
+        return this.players;
 
     
     }
 
+    public Player selectPlayer(String name){
+        for(int x = 0; x<this.players.size(); x++){
+            if(players.get(x).getName().equals(name)){
+                return players.get(x);
+            }
 
+        }
+        return null;
+
+    
+    }
 
     
 }

@@ -18,15 +18,13 @@ public class Controller {
 
        System.out.println(p1.getName() + p1.getHeight() + p1.getAge());
         */
-        p1.Climb("UDleft");
-        p1.Climb("left");
-        System.out.println();
-        p1.Climb("UDright");
-        p1.Climb("right");
+      
 
         File newFile = new File("/workspaces/recording-results-shivani-nsd/src/ConvertMe.csv");
 
-        
+        Game g = new Game();
+
+        System.out.println(g.loadPlayers(newFile) + "hi");
 
         
     }
